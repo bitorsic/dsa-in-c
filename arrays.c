@@ -62,6 +62,20 @@ void deleteElement(int* arr, int* n, int element) {
 	deleteFromIndex(arr, n, index);
 }
 
+void reverseArray(int* arr, int n) {
+	int left = 0;
+	int right = n - 1;
+
+	while (left < right) {
+		// swapping elements at left and right (without temp var)
+		arr[left] = arr[left] ^ arr[right];
+		arr[right] = arr[left] ^ arr[right];
+		arr[left] = arr[left] ^ arr[right];
+
+		left++; right--;
+	}
+}
+
 int main() {
 	int n = 0;
 	int* arr = (int *) malloc(sizeof(int));
@@ -73,12 +87,11 @@ int main() {
 	insertAtIndex(arr, &n, 12, 4);
 	insertAtIndex(arr, &n, 15, 5);
 
-	int index = binarySearch(arr, n, 1);
-	printf("%d\n", index);
+	reverseArray(arr, n);
 
-	// // Traversal //
-	// for (int i = 0; i < n; i++) {
-	// 	printf("%d ", arr[i]);
-	// }
-	// printf("\n");
+	// Traversal //
+	for (int i = 0; i < n; i++) {
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
 }
