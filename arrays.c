@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "include/search.h"
 
 void insertAtIndex(int* arr, int* n, int element, int index) {
 	if (index > (*n)) {
@@ -49,20 +50,35 @@ void deleteFromIndex(int* arr, int* n, int index) {
 	(*n)--;
 }
 
+void deleteElement(int* arr, int* n, int element) {
+	int index = linearSearch(arr, (*n), element);
+
+	// unsuccessful search
+	if (index == -1) {
+		printf("%d was not found in the array\n", element);
+		return;
+	}
+
+	deleteFromIndex(arr, n, index);
+}
+
 int main() {
 	int n = 0;
 	int* arr = (int *) malloc(sizeof(int));
 
 	insertAtIndex(arr, &n, 2, 0);
-	insertAtIndex(arr, &n, 7, 1);
-	insertAtIndex(arr, &n, 9, 1);
-	insertAtIndex(arr, &n, 5, 0);
+	insertAtIndex(arr, &n, 5, 1);
+	insertAtIndex(arr, &n, 7, 2);
+	insertAtIndex(arr, &n, 9, 3);
+	insertAtIndex(arr, &n, 12, 4);
+	insertAtIndex(arr, &n, 15, 5);
 
-	deleteFromIndex(arr, &n, 0);
+	int index = binarySearch(arr, n, 1);
+	printf("%d\n", index);
 
-	// Traversal //
-	for (int i = 0; i < n; i++) {
-		printf("%d ", arr[i]);
-	}
-	printf("\n");
+	// // Traversal //
+	// for (int i = 0; i < n; i++) {
+	// 	printf("%d ", arr[i]);
+	// }
+	// printf("\n");
 }
