@@ -8,7 +8,7 @@ void insertAtIndex(int* arr, int* n, int element, int index) {
 	}
 
 	// base case - empty array
-	if (index == 0) {
+	if ((*n) == 0) {
 		*arr = element;
 		(*n)++;
 		return;
@@ -27,6 +27,28 @@ void insertAtIndex(int* arr, int* n, int element, int index) {
 	arr[index] = element;
 }
 
+void deleteFromIndex(int* arr, int* n, int index) {
+	if (index > (*n)) {
+		printf("index out of range\n");
+		return;
+	}
+
+	// base case - empty array
+	if ((*n) == 0) {
+		printf("no delete empty array\n");
+		return;
+	}
+
+	// left shifting the elements
+	for (int i = index; i < (*n) - 1; i++) {
+		arr[i] = arr[i+1];
+	}
+
+	// shorten the array size
+	arr = realloc(arr, (*n - 1) * sizeof(int));
+	(*n)--;
+}
+
 int main() {
 	int n = 0;
 	int* arr = (int *) malloc(sizeof(int));
@@ -34,8 +56,9 @@ int main() {
 	insertAtIndex(arr, &n, 2, 0);
 	insertAtIndex(arr, &n, 7, 1);
 	insertAtIndex(arr, &n, 9, 1);
-	insertAtIndex(arr, &n, 1, 1);
-	insertAtIndex(arr, &n, 5, 4);
+	insertAtIndex(arr, &n, 5, 0);
+
+	deleteFromIndex(arr, &n, 0);
 
 	// Traversal //
 	for (int i = 0; i < n; i++) {
