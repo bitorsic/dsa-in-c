@@ -88,9 +88,9 @@ int main() {
 	insertAtIndex(arr, &n, 12, 4);
 	insertAtIndex(arr, &n, 3, 5);
 
-	reverseArray(arr, n);
+	// reverseArray(arr, n);
 
-	bubbleSort(arr, n);
+	selectionSort(arr, n);
 
 	// Traversal //
 	for (int i = 0; i < n; i++) {
