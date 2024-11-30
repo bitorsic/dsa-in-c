@@ -1,27 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "include/arrays.h"
-#include "include/search.h"
-#include "include/sort.h"
+#include "include/linkedLists.h"
 
 int main() {
-	int n = 0;
-	int* arr = (int *) malloc(sizeof(int));
+	struct Node* root = NULL;
 
-	insertAtIndex(arr, &n, 2, 0);
-	insertAtIndex(arr, &n, 5, 1);
-	insertAtIndex(arr, &n, 7, 2);
-	insertAtIndex(arr, &n, 3, 3);
-	insertAtIndex(arr, &n, 12, 4);
-	insertAtIndex(arr, &n, 3, 5);
+	root = insert(root, 5);
+	root = insert(root, 1);
+	root = insert(root, 6);
+	root = insert(root, 7);
+	root = insert(root, 2);
+	root = insert(root, 4);
 
-	// reverseArray(arr, n);
-
-	selectionSort(arr, n);
-
-	// Traversal //
-	for (int i = 0; i < n; i++) {
-		printf("%d ", arr[i]);
-	}
-	printf("\n");
+	traverse(root);
 }
