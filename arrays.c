@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "include/search.h"
-#include "include/sort.h"
 
 void insertAtIndex(int* arr, int* n, int element, int index) {
 	if (index > (*n)) {
@@ -75,26 +74,4 @@ void reverseArray(int* arr, int n) {
 
 		left++; right--;
 	}
-}
-
-int main() {
-	int n = 0;
-	int* arr = (int *) malloc(sizeof(int));
-
-	insertAtIndex(arr, &n, 2, 0);
-	insertAtIndex(arr, &n, 5, 1);
-	insertAtIndex(arr, &n, 7, 2);
-	insertAtIndex(arr, &n, 3, 3);
-	insertAtIndex(arr, &n, 12, 4);
-	insertAtIndex(arr, &n, 3, 5);
-
-	// reverseArray(arr, n);
-
-	selectionSort(arr, n);
-
-	// Traversal //
-	for (int i = 0; i < n; i++) {
-		printf("%d ", arr[i]);
-	}
-	printf("\n");
 }
