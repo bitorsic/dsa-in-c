@@ -6,7 +6,7 @@ struct Node {
 	struct Node* next;
 };
 
-struct Node* insert(struct Node* root, int value);
+struct Node* insert(struct Node* root, int* n, int value, int index);
 void traverse(struct Node* root);
 
 #endif
