@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "include/linkedLists.h"
+#include "include/linked_list.h"
 
 struct Node* insert(struct Node* root, int* n, int value, int index) {
 	if (index > (*n)) {

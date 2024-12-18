@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "include/linkedLists.h"
+#include "include/linked_list.h"
 
 int main() {
 	int n = 0;

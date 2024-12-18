@@ -1,5 +1,5 @@
-#ifndef LINKEDLISTS_H
-#define LINKEDLISTS_H
+#ifndef LINKED_LIST_H
+#define LINKED_LIST_H
 
 struct Node {
 	int key;

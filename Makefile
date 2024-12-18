@@ -5,7 +5,7 @@ CC = gcc
 CFLAGS = -Wall -g
 
 # Source files
-SRC = search.c arrays.c sort.c main.c linkedLists.c
+SRC = search.c array.c sort.c main.c linked_list.c
 
 # Object files (replace .c with .o in SRC)
 OBJ = $(SRC:.c=.o)
