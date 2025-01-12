@@ -29,7 +29,7 @@ void insertAtIndex(int* arr, int* n, int element, int index) {
 }
 
 void deleteFromIndex(int* arr, int* n, int index) {
-	if (index > (*n)) {
+	if (index >= (*n)) {
 		printf("index out of range\n");
 		return;
 	}

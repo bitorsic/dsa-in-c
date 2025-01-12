@@ -15,4 +15,6 @@ int main() {
 	root = insert(root, &n, 3, 4);
 
 	traverse(root);
+	root = delete(root, &n, 5);
+	traverse(root);
 }

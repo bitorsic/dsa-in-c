@@ -32,6 +32,36 @@ struct Node* insert(struct Node* root, int* n, int value, int index) {
 
 }
 
+struct Node* delete(struct Node* root, int* n, int index) {
+	if (index >= (*n)) {
+		printf("index out of range\n");
+		return root;
+	}
+
+	struct Node* temp = NULL;
+
+	// delete from beginning
+	if (index == 0) {
+		temp = root->next;
+		free(root);
+		(*n)--;
+		return temp;
+	}
+
+	// traverse to index - 1
+	struct Node* curr = root;
+	for (int i = 0; i < index - 1; i++) {
+		curr = curr->next;
+	}
+
+	// remove the node at index
+	temp = curr->next;
+	curr->next = temp->next;
+	free(temp);
+	(*n)--;
+	return root;
+}
+
 void traverse(struct Node* root) {
 	struct Node* current = root;
 
