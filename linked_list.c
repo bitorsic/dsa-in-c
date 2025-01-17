@@ -72,3 +72,40 @@ void traverse(struct Node* root) {
 
 	printf("\n");
 }
+
+int count(struct Node* root) {
+	int sum = 0;
+
+	struct Node* current = root;
+
+	while (current != NULL) {
+		sum++;
+		current = current->next;
+	}
+
+	return sum;
+}
+
+struct Node* reverse(struct Node* root) {
+	// base case - empty or single element
+	if (root == NULL || root->next == NULL) {
+		return root;
+	}
+
+	// let the 3 pointers be root, i, and j
+	// initializing them one after another
+	struct Node* i = root->next;
+	struct Node* j = i;
+
+	// converting root to the end element
+	root->next = NULL;
+
+	while (j != NULL) {
+		j = i->next;
+		i->next = root;
+		root = i;
+		i = j;
+	}
+
+	return root;
+}

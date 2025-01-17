@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "include/linked_list.h"
+#include "include/search.h"
 
 int main() {
 	int n = 0;
@@ -15,6 +16,8 @@ int main() {
 	root = insert(root, &n, 3, 4);
 
 	traverse(root);
-	root = delete(root, &n, 5);
-	traverse(root);
-}
+	
+	root = reverse(root);
+
+	printf("%d\n", count(root));
+};

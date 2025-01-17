@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "include/linked_list.h"
 
 // returns index of element, -1 if not found
 int linearSearch (int* arr, int n, int element) {
@@ -47,5 +48,31 @@ int binarySearch (int* arr, int n, int element) {
 
 	}
 
+	return -1;
+}
+
+// returns index of element, -1 if not found
+int linkedListSearch (struct Node* root, int n, int element) {
+	// base case - empty linked list
+	if (n == 0) {
+		printf("empty linked list\n");
+		return -1;
+	}
+
+	// // base case - root has the element
+	// if (root->key == element) {
+	// 	return 0;
+	// }
+
+	struct Node* curr = root;
+	for (int i = 0; i < n; i++) {
+		if (curr->key == element) {
+			return i;
+		}
+
+		curr = curr->next;
+	}
+
+	// if execution reaches here, the element was not found
 	return -1;
 }
